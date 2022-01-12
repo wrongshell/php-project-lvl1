@@ -6,11 +6,15 @@
             "Hexlet\\Code\\": "src/"
         }
     },
+    "license": "MIT",
     "authors": [
         {
             "name": "wrongshell",
             "email": "wrongshell@imap.cc"
         }
     ],
-    "require": {}
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+    ]
 }
