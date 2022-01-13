@@ -5,7 +5,8 @@ namespace Brain\Games\Types\Gcd;
 use Brain\Games\Engine;
 
 use function cli\line;
-use function Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats, getDivisors};
+use function Brain\Games\Engine\getDivisors;
+use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
 function generateTask(): array
 {

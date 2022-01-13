@@ -5,7 +5,7 @@ namespace Brain\Games\Types\Even;
 use Brain\Games\Engine;
 
 use function cli\line;
-use function Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
 function generateTask(): array
 {
