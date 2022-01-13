@@ -33,7 +33,7 @@ function generateTask(): array
 function playGcd(): bool
 {
     $name = Engine\getName();
-    line('What is the result of the expression?');
+    line('Find the greatest common divisor of given numbers.');
 
     $scores = 0;
 
