@@ -11,7 +11,7 @@ function generateTask(): array
 {
     $progression[] = random_int(1, 10);
     $step = random_int(2, 5);
-    $length = 10; 
+    $length = 10;
     for ($i = 1; $i <= $length - 1; $i++) {
         $progression[$i] = $progression[$i - 1] + $step;
     }
@@ -20,7 +20,7 @@ function generateTask(): array
     $secret_value = $progression[$secret_key];
     $progression[$secret_key] = '..';
 
-    $task['question'] = implode( ' ', $progression);
+    $task['question'] = implode(' ', $progression);
     $task['answer'] = $secret_value;
 
     return $task;
