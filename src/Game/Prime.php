@@ -10,6 +10,8 @@ use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, p
 
 function generateTask(): array
 {
+    $task = array();
+    
     $number = random_int(1, 99);
     $prime = count(getDivisors($number)) === 2 ? true : false;
 

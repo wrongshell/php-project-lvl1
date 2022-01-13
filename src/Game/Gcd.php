@@ -10,6 +10,8 @@ use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, p
 
 function generateTask(): array
 {
+    $task = array();
+    
     $number1 = random_int(1, 99);
     $number2 = random_int(1, 99);
     $divisors = array_intersect(getDivisors($number1), getDivisors($number2));

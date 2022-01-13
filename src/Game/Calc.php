@@ -9,6 +9,8 @@ use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, p
 
 function generateTask(): array
 {
+    $task = array();
+
     $operations = ['+','-','*'];
     $operation = $operations[random_int(0, 2)];
     $number1 = random_int(1, 99);

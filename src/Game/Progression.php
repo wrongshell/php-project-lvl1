@@ -9,6 +9,9 @@ use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, p
 
 function generateTask(): array
 {
+    $task = array();
+    $progression = array();
+    
     $progression[] = random_int(1, 10);
     $step = random_int(2, 5);
     $length = 10;

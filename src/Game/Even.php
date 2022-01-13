@@ -9,6 +9,8 @@ use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, p
 
 function generateTask(): array
 {
+    $task = array();
+
     $task['question'] = random_int(1, 99);
     $task['answer'] = $task['question'] % 2 === 0 ? 'yes' : 'no';
 
