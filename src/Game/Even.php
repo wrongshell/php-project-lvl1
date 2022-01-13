@@ -20,15 +20,6 @@ function playEven(): bool
     $name = getName();
     line('Answer "yes" if the number is even, otherwise answer "no".');
 
-    // $scores = 0;
-
-    // while ($scores < Engine\MAX_WINS) {
-    //     $task = generateTask();
-    //     askQuestion($task['question']);
-    //     $userAnswer = getAnswer();
-    //     checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
-    // }
-
     for ($scores = 0; $scores < Engine\MAX_WINS;) {
         $task = generateTask();
         askQuestion($task['question']);
@@ -40,7 +31,6 @@ function playEven(): bool
         }
     }
 
-    
     printCongrats($name);
 
     return true;

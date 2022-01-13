@@ -25,13 +25,15 @@ function playCalc(): bool
     $name = getName();
     line('What is the result of the expression?');
 
-    $scores = 0;
-
-    while ($scores < Engine\MAX_WINS) {
+    for ($scores = 0; $scores < Engine\MAX_WINS;) {
         $task = generateTask();
         askQuestion($task['question']);
         $userAnswer = getAnswer();
-        checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
+        if (checkAnswer($name, $task['answer'], $userAnswer)) {
+            $scores++;
+        } else {
+            return false;
+        }
     }
 
     printCongrats($name);
