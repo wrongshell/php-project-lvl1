@@ -5,18 +5,7 @@ namespace Brain\Games\Types\Gcd;
 use Brain\Games\Engine;
 
 use function cli\line;
-use function cli\prompt;
-
-function getDivisors(int $number): array
-{
-    for ($i = 1; $i <= $number; $i++) {
-        if (is_int($number / $i)) {
-            $divisors[] = $i;
-        }
-    }
-
-    return $divisors;
-}
+use function Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats, getDivisors};
 
 function generateTask(): array
 {
@@ -32,19 +21,19 @@ function generateTask(): array
 
 function playGcd(): bool
 {
-    $name = Engine\getName();
+    $name = getName();
     line('Find the greatest common divisor of given numbers.');
 
     $scores = 0;
 
     while ($scores < Engine\MAX_WINS) {
         $task = generateTask();
-        Engine\askQuestion($task['question']);
-        $userAnswer = Engine\getAnswer();
-        Engine\checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
+        askQuestion($task['question']);
+        $userAnswer = getAnswer();
+        checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
     }
 
-    Engine\printCongrats($name);
+    printCongrats($name);
 
     return true;
 }

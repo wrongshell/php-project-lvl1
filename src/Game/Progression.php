@@ -5,7 +5,7 @@ namespace Brain\Games\Types\Progression;
 use Brain\Games\Engine;
 
 use function cli\line;
-use function cli\prompt;
+use function Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
 function generateTask(): array
 {
@@ -28,19 +28,19 @@ function generateTask(): array
 
 function playProgression(): bool
 {
-    $name = Engine\getName();
+    $name = getName();
     line('Find the greatest common divisor of given numbers.');
 
     $scores = 0;
 
     while ($scores < Engine\MAX_WINS) {
         $task = generateTask();
-        Engine\askQuestion($task['question']);
-        $userAnswer = Engine\getAnswer();
-        Engine\checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
+        askQuestion($task['question']);
+        $userAnswer = getAnswer();
+        checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
     }
 
-    Engine\printCongrats($name);
+    printCongrats($name);
 
     return true;
 }

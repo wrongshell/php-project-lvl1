@@ -5,7 +5,7 @@ namespace Brain\Games\Types\Even;
 use Brain\Games\Engine;
 
 use function cli\line;
-use function cli\prompt;
+use function Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
 function generateTask(): array
 {
@@ -17,19 +17,19 @@ function generateTask(): array
 
 function playEven(): bool
 {
-    $name = Engine\getName();
+    $name = getName();
     line('Answer "yes" if the number is even, otherwise answer "no".');
 
     $scores = 0;
 
     while ($scores < Engine\MAX_WINS) {
         $task = generateTask();
-        Engine\askQuestion($task['question']);
-        $userAnswer = Engine\getAnswer();
-        Engine\checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
+        askQuestion($task['question']);
+        $userAnswer = getAnswer();
+        checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
     }
 
-    Engine\printCongrats($name);
+    printCongrats($name);
 
     return true;
 }

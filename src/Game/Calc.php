@@ -5,7 +5,7 @@ namespace Brain\Games\Types\Calc;
 use Brain\Games\Engine;
 
 use function cli\line;
-use function cli\prompt;
+use function Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
 function generateTask(): array
 {
@@ -22,19 +22,19 @@ function generateTask(): array
 
 function playCalc(): bool
 {
-    $name = Engine\getName();
+    $name = getName();
     line('What is the result of the expression?');
 
     $scores = 0;
 
     while ($scores < Engine\MAX_WINS) {
         $task = generateTask();
-        Engine\askQuestion($task['question']);
-        $userAnswer = Engine\getAnswer();
-        Engine\checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
+        askQuestion($task['question']);
+        $userAnswer = getAnswer();
+        checkAnswer($name, $task['answer'], $userAnswer) ? $scores++ : $scores = 0;
     }
 
-    Engine\printCongrats($name);
+    printCongrats($name);
 
     return true;
 }

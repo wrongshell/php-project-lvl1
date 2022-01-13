@@ -8,11 +8,11 @@
         "files": [
             "src/Cli.php",
             "src/Engine.php",
-            "src/types/Even.php",
-            "src/types/Calc.php",
-            "src/types/Gcd.php",
-            "src/types/Progression.php",
-            "src/types/Prime.php"
+            "src/Game/Even.php",
+            "src/Game/Calc.php",
+            "src/Game/Gcd.php",
+            "src/Game/Progression.php",
+            "src/Game/Prime.php"
         ]
     },
     "license": "MIT",
