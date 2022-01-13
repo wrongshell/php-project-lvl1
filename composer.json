@@ -10,7 +10,8 @@
             "src/Engine.php",
             "src/types/Even.php",
             "src/types/Calc.php",
-            "src/types/Gcd.php"
+            "src/types/Gcd.php",
+            "src/types/Progression.php"
         ]
     },
     "license": "MIT",
@@ -28,6 +29,7 @@
         "bin/brain-games",
         "bin/brain-even",
         "bin/brain-calc",
-        "bin/brain-gcd"
+        "bin/brain-gcd",
+        "bin/brain-progression"
     ]
 }
