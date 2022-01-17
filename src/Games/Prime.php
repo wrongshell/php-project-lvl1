@@ -2,44 +2,25 @@
 
 namespace BrainGames\Games\Prime;
 
-use BrainGames\Engine;
-
-use function cli\line;
-use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+use function BrainGames\Engine\playGame;
 use function BrainGames\Misc\getDivisors;
 
-use const BrainGames\Engine\MAX_WINS;
+const GAME = 'Prime';
+const RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function generateTask(): array
+function play(): void
 {
-    $task = array();
+    $generateTask = function (): array {
+        $number = random_int(1, 99);
+        $prime = count(getDivisors($number)) === 2 ? true : false;
+        $task = [];
+        $task['question'] = $number;
+        $task['answer'] = $prime ? 'yes' : 'no';
 
-    $number = random_int(1, 99);
-    $prime = count(getDivisors($number)) === 2 ? true : false;
+        return $task;
+    };
 
-    $task['question'] = $number;
-    $task['answer'] = $prime ? 'yes' : 'no';
+    playGame(GAME, RULES, $generateTask);
 
-    return $task;
-}
-
-function playPrime(): bool
-{
-    $name = getName();
-    line('Find the greatest common divisor of given numbers.');
-
-    for ($scores = 0; $scores < MAX_WINS;) {
-        $task = generateTask();
-        askQuestion($task['question']);
-        $userAnswer = getAnswer();
-        if (checkAnswer($name, $task['answer'], $userAnswer)) {
-            $scores++;
-        } else {
-            return false;
-        }
-    }
-
-    printCongrats($name);
-
-    return true;
+    return;
 }
