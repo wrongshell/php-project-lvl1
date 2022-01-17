@@ -2,52 +2,34 @@
 
 namespace BrainGames\Games\Progression;
 
-use BrainGames\Engine;
+use function BrainGames\Engine\playGame;
 
-use function cli\line;
-use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+const GAME = 'Progression';
+const RULES = 'What number is missing in the progression?';
 
-use const BrainGames\Engine\MAX_WINS;
-
-function generateTask(): array
+function play(): void
 {
-    $task = array();
-    $progression = array();
+    $generateTask = function (): array {
+        $progression = [];
+        $progression[] = random_int(1, 10);
+        $step = random_int(2, 5);
+        $length = 10;
 
-    $progression[] = random_int(1, 10);
-    $step = random_int(2, 5);
-    $length = 10;
-    for ($i = 1; $i <= $length - 1; $i++) {
-        $progression[$i] = $progression[$i - 1] + $step;
-    }
-
-    $secret_key = random_int(0, $length - 1);
-    $secret_value = $progression[$secret_key];
-    $progression[$secret_key] = '..';
-
-    $task['question'] = implode(' ', $progression);
-    $task['answer'] = $secret_value;
-
-    return $task;
-}
-
-function playProgression(): bool
-{
-    $name = getName();
-    line('Find the greatest common divisor of given numbers.');
-
-    for ($scores = 0; $scores < MAX_WINS;) {
-        $task = generateTask();
-        askQuestion($task['question']);
-        $userAnswer = getAnswer();
-        if (checkAnswer($name, $task['answer'], $userAnswer)) {
-            $scores++;
-        } else {
-            return false;
+        for ($i = 1; $i <= $length - 1; $i++) {
+            $progression[$i] = $progression[$i - 1] + $step;
         }
-    }
 
-    printCongrats($name);
+        $secret_key = random_int(0, $length - 1);
+        $secret_value = $progression[$secret_key];
+        $progression[$secret_key] = '..';
+        $task = [];
+        $task['question'] = implode(' ', $progression);
+        $task['answer'] = $secret_value;
 
-    return true;
+        return $task;
+    };
+
+    playGame(GAME, RULES, $generateTask);
+
+    return;
 }
