@@ -1,11 +1,11 @@
 <?php
 
-namespace Brain\Games\Engine;
+namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
-define('Brain\Games\Engine\MAX_WINS', 3);
+define('BrainGames\Engine\MAX_WINS', 3);
 
 function getDivisors(int $number): array
 {

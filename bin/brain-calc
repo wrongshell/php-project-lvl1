@@ -3,7 +3,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Brain\Games\Game\Calc;
-use function Brain\Games\Game\Calc\playCalc;
+use BrainGames\Games\Calc;
+use function BrainGames\Games\Calc\playCalc;
 
 playCalc();

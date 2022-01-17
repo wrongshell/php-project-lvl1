@@ -1,11 +1,11 @@
 <?php
 
-namespace Brain\Games\Game\Progression;
+namespace BrainGames\Games\Progression;
 
-use Brain\Games\Engine;
+use BrainGames\Engine;
 
 use function cli\line;
-use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
 function generateTask(): array
 {

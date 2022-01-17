@@ -1,12 +1,12 @@
 <?php
 
-namespace Brain\Games\Game\Prime;
+namespace BrainGames\Games\Prime;
 
-use Brain\Games\Engine;
+use BrainGames\Engine;
 
 use function cli\line;
-use function Brain\Games\Engine\getDivisors;
-use function Brain\Games\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+use function BrainGames\Engine\getDivisors;
+use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
 function generateTask(): array
 {
