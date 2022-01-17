@@ -4,10 +4,14 @@ namespace BrainGames\Games\Even;
 
 use BrainGames\Engine;
 
-use function cli\line;
-use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+// use function cli\line;
+// use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+use function BrainGames\Engine\playGame;
 
-use const BrainGames\Engine\MAX_WINS;
+// use const BrainGames\Engine\MAX_WINS;
+
+const GAME = 'Even';
+const RULES = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function generateTask(): array
 {
@@ -19,23 +23,30 @@ function generateTask(): array
     return $task;
 }
 
-function playEven(): bool
+// function playEven(): bool
+// {
+//     $name = getName();
+//     line('Answer "yes" if the number is even, otherwise answer "no".');
+
+//     for ($scores = 0; $scores < MAX_WINS;) {
+//         $task = generateTask();
+//         askQuestion($task['question']);
+//         $userAnswer = getAnswer();
+//         if (checkAnswer($name, $task['answer'], $userAnswer)) {
+//             $scores++;
+//         } else {
+//             return false;
+//         }
+//     }
+
+//     printCongrats($name);
+
+//     return true;
+// }
+
+function play(): void
 {
-    $name = getName();
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    playGame(GAME, RULES);
 
-    for ($scores = 0; $scores < MAX_WINS;) {
-        $task = generateTask();
-        askQuestion($task['question']);
-        $userAnswer = getAnswer();
-        if (checkAnswer($name, $task['answer'], $userAnswer)) {
-            $scores++;
-        } else {
-            return false;
-        }
-    }
-
-    printCongrats($name);
-
-    return true;
+    return;
 }

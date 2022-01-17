@@ -44,3 +44,29 @@ function printCongrats(string $name): bool
     line("Congratulations, %s!", $name);
     return true;
 }
+
+function playGame(string $game, string $rules): void
+{
+    $generateTask = "\\BrainGames\\Games\\" . $game . "\\generateTask";
+
+    $name = getName();
+    line('%s', $rules);
+
+    // $result = $generateTask();
+    // var_dump($result);
+
+    for ($scores = 0; $scores < MAX_WINS;) {
+        $task = $generateTask();
+        askQuestion($task['question']);
+        $userAnswer = getAnswer();
+        if (checkAnswer($name, $task['answer'], $userAnswer)) {
+            $scores++;
+        } else {
+            return;
+        }
+    }
+
+    printCongrats($name);
+
+    return;
+}
