@@ -7,6 +7,8 @@ use BrainGames\Engine;
 use function cli\line;
 use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
+use const BrainGames\Engine\MAX_WINS;
+
 function generateTask(): array
 {
     $task = array();
@@ -34,7 +36,7 @@ function playProgression(): bool
     $name = getName();
     line('Find the greatest common divisor of given numbers.');
 
-    for ($scores = 0; $scores < Engine\MAX_WINS;) {
+    for ($scores = 0; $scores < MAX_WINS;) {
         $task = generateTask();
         askQuestion($task['question']);
         $userAnswer = getAnswer();

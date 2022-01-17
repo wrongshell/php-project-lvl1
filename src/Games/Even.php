@@ -7,6 +7,8 @@ use BrainGames\Engine;
 use function cli\line;
 use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
 
+use const BrainGames\Engine\MAX_WINS;
+
 function generateTask(): array
 {
     $task = array();
@@ -22,7 +24,7 @@ function playEven(): bool
     $name = getName();
     line('Answer "yes" if the number is even, otherwise answer "no".');
 
-    for ($scores = 0; $scores < Engine\MAX_WINS;) {
+    for ($scores = 0; $scores < MAX_WINS;) {
         $task = generateTask();
         askQuestion($task['question']);
         $userAnswer = getAnswer();

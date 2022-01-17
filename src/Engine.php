@@ -5,7 +5,7 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-define('BrainGames\Engine\MAX_WINS', 3);
+const MAX_WINS = 3;
 
 function getDivisors(int $number): array
 {
