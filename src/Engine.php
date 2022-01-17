@@ -7,19 +7,6 @@ use function cli\prompt;
 
 const MAX_WINS = 3;
 
-function getDivisors(int $number): array
-{
-    $divisors = array();
-
-    for ($i = 1; $i <= $number; $i++) {
-        if (is_int($number / $i)) {
-            $divisors[] = $i;
-        }
-    }
-
-    return $divisors;
-}
-
 function getName(): string
 {
     line('Welcome to the Brain Games!');

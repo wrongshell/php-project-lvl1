@@ -5,8 +5,8 @@ namespace BrainGames\Games\Gcd;
 use BrainGames\Engine;
 
 use function cli\line;
-use function BrainGames\Engine\getDivisors;
 use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
+use function BrainGames\Misc\getDivisors;
 
 use const BrainGames\Engine\MAX_WINS;
 
