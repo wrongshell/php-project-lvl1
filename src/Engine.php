@@ -2,7 +2,7 @@
 
 namespace BrainGames\Engine;
 
-use BrainGames\Games\Even;
+use BrainGames\Games\{Calc, Even, Gcd, Prime, Progression};
 
 use function cli\line;
 use function cli\prompt;
@@ -17,10 +17,10 @@ function getName(): string
     return $name;
 }
 
-function askQuestion(string $question): bool
+function askQuestion(string $question): void
 {
     line("Question: %s", $question);
-    return true;
+    return;
 }
 
 function getAnswer(): string
@@ -41,25 +41,16 @@ function checkAnswer(string $name, string $correctAnswer, string $userAnswer): b
     }
 }
 
-function printCongrats(string $name): bool
+function printCongrats(string $name): void
 {
     line("Congratulations, %s!", $name);
-    return true;
+    return;
 }
 
 function playGame(string $game, string $rules, callable $generateTask): void
 {
-    // $generateTask = "\\BrainGames\\Games\\" . $game . "\\generateTask";
-
-    // if (!is_callable('$generateTask')) {
-    //     return;
-    // }
-
     $name = getName();
     line('%s', $rules);
-
-    // $result = $generateTask();
-    // var_dump($result);
 
     for ($scores = 0; $scores < MAX_WINS;) {
         $task = $generateTask();

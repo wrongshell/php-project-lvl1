@@ -2,12 +2,10 @@
 
 namespace BrainGames\Games\Calc;
 
-use BrainGames\Engine;
+use function BrainGames\Engine\playGame;
 
-use function cli\line;
-use function BrainGames\Engine\{getName, askQuestion, getAnswer, checkAnswer, printCongrats};
-
-use const BrainGames\Engine\MAX_WINS;
+const GAME = 'Calc';
+const RULES = 'What is the result of the expression?';
 
 function generateTask(): array
 {
@@ -24,23 +22,21 @@ function generateTask(): array
     return $task;
 }
 
-function playCalc(): bool
+function play(): void
 {
-    $name = getName();
-    line('What is the result of the expression?');
+    $generateTask = function (): array {
+        $operations = ['+','-','*'];
+        $operation = $operations[random_int(0, 2)];
+        $number1 = random_int(1, 99);
+        $number2 = random_int(1, 99);
+        $task = [];
+        $task['question'] = "{$number1} {$operation} {$number2}";
+        $task['answer'] = eval('return ' . $task['question'] . ';');
 
-    for ($scores = 0; $scores < MAX_WINS;) {
-        $task = generateTask();
-        askQuestion($task['question']);
-        $userAnswer = getAnswer();
-        if (checkAnswer($name, $task['answer'], $userAnswer)) {
-            $scores++;
-        } else {
-            return false;
-        }
-    }
+        return $task;
+    };
 
-    printCongrats($name);
+    playGame(GAME, RULES, $generateTask);
 
-    return true;
+    return;
 }
