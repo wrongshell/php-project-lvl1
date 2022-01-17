@@ -13,15 +13,13 @@ use function BrainGames\Engine\playGame;
 const GAME = 'Even';
 const RULES = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function generateTask(): array
-{
-    $task = array();
+// $generateTask = function (): array {
+//     $task = [];
+//     $task['question'] = random_int(1, 99);
+//     $task['answer'] = $task['question'] % 2 === 0 ? 'yes' : 'no';
 
-    $task['question'] = random_int(1, 99);
-    $task['answer'] = $task['question'] % 2 === 0 ? 'yes' : 'no';
-
-    return $task;
-}
+//     return $task;
+// };
 
 // function playEven(): bool
 // {
@@ -46,7 +44,14 @@ function generateTask(): array
 
 function play(): void
 {
-    playGame(GAME, RULES);
+    $generateTask = function (): array {
+        $task['question'] = random_int(1, 99);
+        $task['answer'] = $task['question'] % 2 === 0 ? 'yes' : 'no';
+
+        return $task;
+    };
+
+    playGame(GAME, RULES, $generateTask);
 
     return;
 }

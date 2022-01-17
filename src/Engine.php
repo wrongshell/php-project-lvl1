@@ -2,6 +2,8 @@
 
 namespace BrainGames\Engine;
 
+use BrainGames\Games\Even;
+
 use function cli\line;
 use function cli\prompt;
 
@@ -45,9 +47,13 @@ function printCongrats(string $name): bool
     return true;
 }
 
-function playGame(string $game, string $rules): void
+function playGame(string $game, string $rules, callable $generateTask): void
 {
-    $generateTask = "\\BrainGames\\Games\\" . $game . "\\generateTask";
+    // $generateTask = "\\BrainGames\\Games\\" . $game . "\\generateTask";
+
+    // if (!is_callable('$generateTask')) {
+    //     return;
+    // }
 
     $name = getName();
     line('%s', $rules);
