@@ -4,8 +4,8 @@ namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\playGame;
 
-const GAME = 'Progression';
-const RULES = 'What number is missing in the progression?';
+const GAME_NAME = 'Progression';
+const GAME_DESCRIPTION = 'What number is missing in the progression?';
 
 function play(): void
 {
@@ -29,7 +29,5 @@ function play(): void
         return $task;
     };
 
-    playGame(GAME, RULES, $generateTask);
-
-    return;
+    playGame(GAME_NAME, GAME_DESCRIPTION, $generateTask);
 }

@@ -4,8 +4,8 @@ namespace BrainGames\Games\Calc;
 
 use function BrainGames\Engine\playGame;
 
-const GAME = 'Calc';
-const RULES = 'What is the result of the expression?';
+const GAME_NAME = 'Calc';
+const GAME_DESCRIPTION = 'What is the result of the expression?';
 
 function play(): void
 {
@@ -21,7 +21,5 @@ function play(): void
         return $task;
     };
 
-    playGame(GAME, RULES, $generateTask);
-
-    return;
+    playGame(GAME_NAME, GAME_DESCRIPTION, $generateTask);
 }

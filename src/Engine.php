@@ -45,10 +45,10 @@ function printCongrats(string $name): void
     line("Congratulations, %s!", $name);
 }
 
-function playGame(string $game, string $rules, callable $generateTask): void
+function playGame(string $game, string $desc, callable $generateTask): void
 {
     $name = getName();
-    line('%s', $rules);
+    line('%s', $desc);
 
     for ($scores = 0; $scores < MAX_WINS;) {
         $task = $generateTask();

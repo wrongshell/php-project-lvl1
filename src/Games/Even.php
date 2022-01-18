@@ -4,8 +4,8 @@ namespace BrainGames\Games\Even;
 
 use function BrainGames\Engine\playGame;
 
-const GAME = 'Even';
-const RULES = 'Answer "yes" if the number is even, otherwise answer "no".';
+const GAME_NAME = 'Even';
+const GAME_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function play(): void
 {
@@ -17,7 +17,5 @@ function play(): void
         return $task;
     };
 
-    playGame(GAME, RULES, $generateTask);
-
-    return;
+    playGame(GAME_NAME, GAME_DESCRIPTION, $generateTask);
 }

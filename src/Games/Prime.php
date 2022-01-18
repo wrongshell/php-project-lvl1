@@ -5,8 +5,8 @@ namespace BrainGames\Games\Prime;
 use function BrainGames\Engine\playGame;
 use function BrainGames\Misc\getDivisors;
 
-const GAME = 'Prime';
-const RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const GAME_NAME = 'Prime';
+const GAME_DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function play(): void
 {
@@ -20,7 +20,5 @@ function play(): void
         return $task;
     };
 
-    playGame(GAME, RULES, $generateTask);
-
-    return;
+    playGame(GAME_NAME, GAME_DESCRIPTION, $generateTask);
 }
