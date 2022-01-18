@@ -12,7 +12,7 @@ function play(): void
 {
     $generateTask = function (): array {
         $number = random_int(1, 99);
-        $prime = count(getDivisors($number)) === 2 ? true : false;
+        $prime = count(getDivisors($number)) === 2;
         $task = array(
             'question' => $number,
             'answer' => $prime ? 'yes' : 'no'
