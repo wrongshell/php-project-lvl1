@@ -29,25 +29,7 @@ function playGame(string $game, string $desc, callable $generateTask): void
             line("Let's try again, %s!", $name);
             return;
         }
-
-        // if (checkAnswer($name, $task['answer'], $userAnswer)) {
-        //     $scores++;
-        // } else {
-        //     return;
-        // }
     }
 
     line("Congratulations, %s!", $name);
 }
-
-// function checkAnswer(string $name, string $correctAnswer, string $userAnswer): bool
-// {
-//     if ($correctAnswer === $userAnswer) {
-//         line("Correct!");
-//         return true;
-//     } else {
-//         line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $correctAnswer);
-//         line("Let's try again, %s!", $name);
-//         return false;
-//     }
-// }
