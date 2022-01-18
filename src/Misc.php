@@ -29,26 +29,20 @@ function getProgression(int $size): array
     return $progression;
 }
 
-function arithmeticEval(int $num1, int $num2, string $operation): float
+function arithmeticEval(int $num1, int $num2, string $operation)
 {
     switch ($operation) {
         case '+':
             return $num1 + $num2 ;
-            break;
         case '-':
             return $num1 - $num2 ;
-            break;
         case '*':
             return $num1 * $num2 ;
-            break;
         case '/':
             return $num1 / $num2 ;
-            break;
         case '%':
             return $num1 % $num2 ;
-            break;
         case '**':
             return $num1 ** $num2 ;
-            break;
     }
 }
