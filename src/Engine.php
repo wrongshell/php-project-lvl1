@@ -14,59 +14,40 @@ function playGame(string $game, string $desc, callable $generateTask): void
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-
-    // $name = getName();
     line('%s', $desc);
 
     for ($scores = 0; $scores < MAX_WINS;) {
         $task = $generateTask();
-        // askQuestion($task['question']);
         line("Question: %s", $task['question']);
-        // $userAnswer = getAnswer();
         $userAnswer = strtolower(prompt('Your answer'));
-        if (checkAnswer($name, $task['answer'], $userAnswer)) {
+
+        if ($task['answer'] === $userAnswer) {
+            line("Correct!");
             $scores++;
         } else {
+            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $task['answer']);
+            line("Let's try again, %s!", $name);
             return;
         }
+
+        // if (checkAnswer($name, $task['answer'], $userAnswer)) {
+        //     $scores++;
+        // } else {
+        //     return;
+        // }
     }
 
-    // printCongrats($name);
     line("Congratulations, %s!", $name);
 }
 
-// function getName(): string
+// function checkAnswer(string $name, string $correctAnswer, string $userAnswer): bool
 // {
-//     line('Welcome to the Brain Games!');
-//     $name = prompt('May I have your name?');
-//     line("Hello, %s!", $name);
-//     return $name;
-// }
-
-// function askQuestion(string $question): void
-// {
-//     line("Question: %s", $question);
-// }
-
-// function getAnswer(): string
-// {
-//     $answer = strtolower(prompt('Your answer'));
-//     return $answer;
-// }
-
-function checkAnswer(string $name, string $correctAnswer, string $userAnswer): bool
-{
-    if ($correctAnswer === $userAnswer) {
-        line("Correct!");
-        return true;
-    } else {
-        line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $correctAnswer);
-        line("Let's try again, %s!", $name);
-        return false;
-    }
-}
-
-// function printCongrats(string $name): void
-// {
-//     line("Congratulations, %s!", $name);
+//     if ($correctAnswer === $userAnswer) {
+//         line("Correct!");
+//         return true;
+//     } else {
+//         line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $correctAnswer);
+//         line("Let's try again, %s!", $name);
+//         return false;
+//     }
 // }
