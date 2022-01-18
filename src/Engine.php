@@ -9,24 +9,50 @@ use function cli\prompt;
 
 const MAX_WINS = 3;
 
-function getName(): string
+function playGame(string $game, string $desc, callable $generateTask): void
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    return $name;
+
+    // $name = getName();
+    line('%s', $desc);
+
+    for ($scores = 0; $scores < MAX_WINS;) {
+        $task = $generateTask();
+        // askQuestion($task['question']);
+        line("Question: %s", $task['question']);
+        // $userAnswer = getAnswer();
+        $userAnswer = strtolower(prompt('Your answer'));
+        if (checkAnswer($name, $task['answer'], $userAnswer)) {
+            $scores++;
+        } else {
+            return;
+        }
+    }
+
+    // printCongrats($name);
+    line("Congratulations, %s!", $name);
 }
 
-function askQuestion(string $question): void
-{
-    line("Question: %s", $question);
-}
+// function getName(): string
+// {
+//     line('Welcome to the Brain Games!');
+//     $name = prompt('May I have your name?');
+//     line("Hello, %s!", $name);
+//     return $name;
+// }
 
-function getAnswer(): string
-{
-    $answer = strtolower(prompt('Your answer'));
-    return $answer;
-}
+// function askQuestion(string $question): void
+// {
+//     line("Question: %s", $question);
+// }
+
+// function getAnswer(): string
+// {
+//     $answer = strtolower(prompt('Your answer'));
+//     return $answer;
+// }
 
 function checkAnswer(string $name, string $correctAnswer, string $userAnswer): bool
 {
@@ -40,26 +66,7 @@ function checkAnswer(string $name, string $correctAnswer, string $userAnswer): b
     }
 }
 
-function printCongrats(string $name): void
-{
-    line("Congratulations, %s!", $name);
-}
-
-function playGame(string $game, string $desc, callable $generateTask): void
-{
-    $name = getName();
-    line('%s', $desc);
-
-    for ($scores = 0; $scores < MAX_WINS;) {
-        $task = $generateTask();
-        askQuestion($task['question']);
-        $userAnswer = getAnswer();
-        if (checkAnswer($name, $task['answer'], $userAnswer)) {
-            $scores++;
-        } else {
-            return;
-        }
-    }
-
-    printCongrats($name);
-}
+// function printCongrats(string $name): void
+// {
+//     line("Congratulations, %s!", $name);
+// }
