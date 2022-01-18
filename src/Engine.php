@@ -20,7 +20,6 @@ function getName(): string
 function askQuestion(string $question): void
 {
     line("Question: %s", $question);
-    return;
 }
 
 function getAnswer(): string
@@ -44,7 +43,6 @@ function checkAnswer(string $name, string $correctAnswer, string $userAnswer): b
 function printCongrats(string $name): void
 {
     line("Congratulations, %s!", $name);
-    return;
 }
 
 function playGame(string $game, string $rules, callable $generateTask): void
@@ -64,6 +62,4 @@ function playGame(string $game, string $rules, callable $generateTask): void
     }
 
     printCongrats($name);
-
-    return;
 }
