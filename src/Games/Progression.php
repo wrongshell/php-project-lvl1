@@ -22,7 +22,7 @@ function play(): void
         // for ($i = 1; $i <= $length - 1; $i++) {
         //     $progression[$i] = $progression[$i - 1] + $step;
         // }
-        
+
         $progressionSize = 10;
         $progression = getProgression($progressionSize);
         $secretKey = array_rand($progression);
