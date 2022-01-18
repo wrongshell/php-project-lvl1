@@ -3,23 +3,28 @@
 namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\playGame;
+use function BrainGames\Misc\getProgression;
 
 const GAME_NAME = 'Progression';
 const GAME_DESCRIPTION = 'What number is missing in the progression?';
 
+
+
 function play(): void
 {
     $generateTask = function (): array {
-        $progression = array(
-            '0' => random_int(1, 10)
-        );
-        $step = random_int(2, 5);
-        $length = 10;
+        // $progression = array(
+        //     '0' => random_int(1, 10)
+        // );
+        // $step = random_int(2, 5);
+        // $length = 10;
 
-        for ($i = 1; $i <= $length - 1; $i++) {
-            $progression[$i] = $progression[$i - 1] + $step;
-        }
-
+        // for ($i = 1; $i <= $length - 1; $i++) {
+        //     $progression[$i] = $progression[$i - 1] + $step;
+        // }
+        
+        $progressionSize = 10;
+        $progression = getProgression($progressionSize);
         $secretKey = array_rand($progression);
         $secretValue = $progression[$secretKey];
         $progression[$secretKey] = '..';
