@@ -11,12 +11,12 @@ function play(): void
 {
     $generateTask = function (): array {
         $operations = ['+','-','*'];
-        // $operation = $operations[random_int(0, count($operations) - 1)];
         $operation = $operations[array_rand($operations)];
         $number1 = random_int(1, 99);
         $number2 = random_int(1, 99);
-        $task = [];
-        $task['question'] = "{$number1} {$operation} {$number2}";
+        $task = array(
+            'question' => "{$number1} {$operation} {$number2}"
+        );
         $task['answer'] = eval('return ' . $task['question'] . ';');
 
         return $task;

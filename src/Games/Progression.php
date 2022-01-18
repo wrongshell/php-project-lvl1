@@ -10,8 +10,9 @@ const GAME_DESCRIPTION = 'What number is missing in the progression?';
 function play(): void
 {
     $generateTask = function (): array {
-        $progression = [];
-        $progression[] = random_int(1, 10);
+        $progression = array(
+            '0' => random_int(1, 10)
+        );
         $step = random_int(2, 5);
         $length = 10;
 
@@ -19,12 +20,13 @@ function play(): void
             $progression[$i] = $progression[$i - 1] + $step;
         }
 
-        $secret_key = random_int(0, $length - 1);
-        $secret_value = $progression[$secret_key];
-        $progression[$secret_key] = '..';
-        $task = [];
-        $task['question'] = implode(' ', $progression);
-        $task['answer'] = $secret_value;
+        $secretKey = random_int(0, $length - 1);
+        $secretValue = $progression[$secretKey];
+        $progression[$secretKey] = '..';
+        $task = array(
+            'question' => implode(' ', $progression),
+            'answer' => $secretValue
+        );
 
         return $task;
     };
