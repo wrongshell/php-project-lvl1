@@ -19,9 +19,9 @@ function playGame(string $game, string $desc, callable $generateTask): void
     for ($scores = 0; $scores < MAX_WINS;) {
         $task = $generateTask();
         line("Question: %s", $task['question']);
-        $userAnswer = strtolower(prompt('Your answer'));
+        $userAnswer = prompt('Your answer');
 
-        if ($task['answer'] === $userAnswer) {
+        if (strtolower($task['answer']) === strtolower($userAnswer)) {
             line("Correct!");
             $scores++;
         } else {
