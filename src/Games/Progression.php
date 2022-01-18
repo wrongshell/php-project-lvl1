@@ -20,7 +20,7 @@ function play(): void
             $progression[$i] = $progression[$i - 1] + $step;
         }
 
-        $secretKey = random_int(0, $length - 1);
+        $secretKey = array_rand($progression);
         $secretValue = $progression[$secretKey];
         $progression[$secretKey] = '..';
         $task = array(
