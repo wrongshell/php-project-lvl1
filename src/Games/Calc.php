@@ -19,7 +19,6 @@ function play(): void
             'question' => "{$number1} {$operation} {$number2}",
             'answer' => arithmeticEval($number1, $number2, $operation)
         );
-        // $task['answer'] = eval('return ' . $task['question'] . ';');
 
         return $task;
     };
