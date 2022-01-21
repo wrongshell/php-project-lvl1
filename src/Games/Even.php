@@ -10,10 +10,11 @@ const GAME_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "
 function play(): void
 {
     $generateTask = function (): array {
-        $task = array(
-            'question' => random_int(1, 99)
-        );
-        $task['answer'] = $task['question'] % 2 === 0 ? 'yes' : 'no';
+        $question = random_int(1, 99);
+        $task = [
+            'question' => $question,
+            'answer' => $question % 2 === 0 ? 'yes' : 'no'
+        ];
 
         return $task;
     };

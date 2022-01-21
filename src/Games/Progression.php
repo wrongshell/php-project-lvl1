@@ -9,9 +9,9 @@ const GAME_DESCRIPTION = 'What number is missing in the progression?';
 
 function getProgression(int $size, array $start, array $step): array
 {
-    $progression = array(
+    $progression = [
         '0' => random_int($start[0], $start[1])
-    );
+    ];
     $step = random_int($step[0], $step[1]);
 
     for ($i = 1; $i <= $size - 1; $i++) {
@@ -31,10 +31,10 @@ function play(): void
         $secretKey = array_rand($progression);
         $secretValue = $progression[$secretKey];
         $progression[$secretKey] = '..';
-        $task = array(
+        $task = [
             'question' => implode(' ', $progression),
             'answer' => $secretValue
-        );
+        ];
 
         return $task;
     };
