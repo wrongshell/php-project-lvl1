@@ -11,12 +11,11 @@ function play(): void
 {
     $generateTask = function (): array {
         $question = random_int(1, 99);
-        $task = [
+
+        return [
             'question' => $question,
             'answer' => $question % 2 === 0 ? 'yes' : 'no'
         ];
-
-        return $task;
     };
 
     playGame(GAME_NAME, GAME_DESCRIPTION, $generateTask);

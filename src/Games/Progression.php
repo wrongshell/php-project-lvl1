@@ -31,12 +31,11 @@ function play(): void
         $secretKey = array_rand($progression);
         $secretValue = $progression[$secretKey];
         $progression[$secretKey] = '..';
-        $task = [
+
+        return [
             'question' => implode(' ', $progression),
             'answer' => $secretValue
         ];
-
-        return $task;
     };
 
     playGame(GAME_NAME, GAME_DESCRIPTION, $generateTask);

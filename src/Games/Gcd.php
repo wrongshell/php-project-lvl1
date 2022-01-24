@@ -14,12 +14,11 @@ function play(): void
         $number1 = random_int(1, 99);
         $number2 = random_int(1, 99);
         $divisors = array_intersect(getDivisors($number1), getDivisors($number2));
-        $task = [
+
+        return [
             'question' => "{$number1} {$number2}",
             'answer' => end($divisors)
         ];
-
-        return $task;
     };
 
     playGame(GAME_NAME, GAME_DESCRIPTION, $generateTask);
