@@ -9,7 +9,8 @@ const GAME_DESCRIPTION = 'What number is missing in the progression?';
 
 function getProgression(int $size, int $start, int $step): array
 {
-    for ($progression = [], $i = 1; $i <= $size; $i++) {
+    $progression = [];
+    for ($i = 1; $i <= $size; $i++) {
         $progression[] = $i * $step;
     }
 
