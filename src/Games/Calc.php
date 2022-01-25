@@ -11,17 +11,17 @@ function calculate(int $num1, int $num2, string $operation): float
 {
     switch ($operation) {
         case '+':
-            return $num1 + $num2 ;
+            return $num1 + $num2;
         case '-':
-            return $num1 - $num2 ;
+            return $num1 - $num2;
         case '*':
-            return $num1 * $num2 ;
+            return $num1 * $num2;
         case '/':
-            return $num1 / $num2 ;
+            return $num1 / $num2;
         case '%':
-            return $num1 % $num2 ;
+            return $num1 % $num2;
         case '**':
-            return $num1 ** $num2 ;
+            return $num1 ** $num2;
         default:
             exit('Unknown operation!');
     }
